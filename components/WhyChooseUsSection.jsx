@@ -144,7 +144,7 @@ function WhyBg() {
 
 export default function WhyChooseUsSection() {
   return (
-    <section id="why-us" className="relative overflow-hidden py-14 lg:py-20 px-6 lg:px-10">
+    <section id="why-us" className="relative overflow-hidden pt-14 pb-6 lg:pt-20 lg:pb-8 px-6 lg:px-10">
       <WhyBg />
 
       <div className="relative z-10 mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
@@ -155,11 +155,11 @@ export default function WhyChooseUsSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative rounded-3xl overflow-hidden h-[520px] shadow-2xl order-2 lg:order-1"
+          className="relative rounded-3xl overflow-hidden h-[300px] sm:h-[400px] lg:h-[520px] shadow-2xl order-2 lg:order-1"
         >
           <Image
-            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80"
-            alt="Doctor with patient"
+            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
+            alt="Caring doctor with mother and newborn"
             fill
             className="object-cover"
           />
@@ -182,7 +182,7 @@ export default function WhyChooseUsSection() {
             <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-4">
               <Heart size={12} fill="#E11D74" strokeWidth={0} /> WHY CHOOSE US
             </span>
-            <h2 className="font-serif text-4xl font-extrabold text-[#2B0F1E] leading-tight">
+            <h2 className="font-serif text-3xl lg:text-4xl font-extrabold text-[#2B0F1E] leading-tight">
               Why Mothers{" "}
               <span className="italic text-[#E11D74]">Choose Us</span>
             </h2>

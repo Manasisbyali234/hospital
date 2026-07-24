@@ -24,7 +24,7 @@ export default function FacilitiesSection() {
             <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-4">
               <Heart size={12} fill="#E11D74" strokeWidth={0} /> FACILITIES
             </span>
-            <h2 className="font-serif text-4xl font-extrabold text-[#2B0F1E] leading-tight">
+            <h2 className="font-serif text-3xl lg:text-4xl font-extrabold text-[#2B0F1E] leading-tight">
               World-Class <span className="italic text-[#E11D74]">Infrastructure</span>
             </h2>
             <p className="mt-3 text-gray-500 text-[15px]">
@@ -60,7 +60,7 @@ export default function FacilitiesSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative rounded-3xl overflow-hidden h-[520px] shadow-xl"
+          className="relative rounded-3xl overflow-hidden h-[300px] sm:h-[400px] lg:h-[520px] shadow-xl"
         >
           <Image
             src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80"

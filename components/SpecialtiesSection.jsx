@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { Heart, ArrowRight, Stethoscope } from "lucide-react";
 
 /* ── Inline 3-D SVG icons ── */
 function Icon3D_Stethoscope() {
@@ -307,19 +307,69 @@ function SpecialtiesBg() {
 
 export default function SpecialtiesSection() {
   return (
-    <section id="specialties" className="relative overflow-hidden bg-[#fff8fa] py-12 lg:py-16 px-6 lg:px-10">
+    <section id="specialties" className="relative overflow-hidden bg-[#fff8fa] pt-0 pb-4 lg:pb-6 px-6 lg:px-10">
       <SpecialtiesBg />
       <div className="relative z-10 mx-auto max-w-[1280px]">
-        <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-4">
-            <Heart size={12} fill="#E11D74" strokeWidth={0} /> SPECIALTIES
-          </span>
-          <h2 className="font-serif text-4xl font-extrabold text-[#2B0F1E] leading-tight">
-            Our Areas of <span className="italic text-[#E11D74]">Expertise</span>
-          </h2>
-          <p className="mt-3 text-gray-500 text-[15px] max-w-xl mx-auto">
-            From routine care to complex procedures, we cover every aspect of women's health.
-          </p>
+        {/* ── Full-width heading banner ── */}
+        <div className="relative rounded-3xl overflow-hidden mb-6 px-6 py-10 sm:px-8 sm:py-14 text-center bg-gradient-to-br from-[#fff0f6] via-white to-[#fce4ec] border border-pink-100 shadow-[0_4px_60px_0_rgba(225,29,116,0.10)]">
+
+          {/* Dot grid */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.055]" aria-hidden>
+            <defs>
+              <pattern id="hdr-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.6" fill="#E11D74" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hdr-dots)" />
+          </svg>
+
+          {/* Top-left blob */}
+          <div className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-gradient-to-br from-pink-200 to-rose-300 opacity-25 blur-3xl" />
+          {/* Bottom-right blob */}
+          <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-gradient-to-tl from-fuchsia-200 to-pink-300 opacity-25 blur-3xl" />
+          {/* Top-right small accent */}
+          <div className="absolute top-6 right-10 w-28 h-28 rounded-full bg-pink-100 opacity-40 blur-2xl" />
+          {/* Bottom-left small accent */}
+          <div className="absolute bottom-6 left-10 w-28 h-28 rounded-full bg-rose-100 opacity-40 blur-2xl" />
+
+          {/* Decorative wavy top border */}
+          <svg className="absolute top-0 left-0 w-full" viewBox="0 0 1280 18" preserveAspectRatio="none" fill="none" aria-hidden>
+            <path d="M0 18 Q160 0 320 10 Q480 18 640 6 Q800 0 960 12 Q1120 18 1280 4 L1280 0 L0 0Z" fill="#E11D74" opacity="0.07" />
+          </svg>
+          {/* Decorative wavy bottom border */}
+          <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1280 18" preserveAspectRatio="none" fill="none" aria-hidden>
+            <path d="M0 0 Q160 18 320 8 Q480 0 640 14 Q800 18 960 6 Q1120 0 1280 16 L1280 18 L0 18Z" fill="#E11D74" opacity="0.07" />
+          </svg>
+
+          {/* Floating sparkle dots */}
+          {[[6,8],[94,12],[18,88],[88,80],[50,5],[5,50]].map(([x,y],i)=>(
+            <div key={i} className="absolute w-2 h-2 rounded-full bg-[#E11D74] opacity-20"
+              style={{left:`${x}%`, top:`${y}%`}} />
+          ))}
+
+          {/* Content */}
+          <div className="relative z-10">
+            <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-5">
+              <Stethoscope size={12} className="text-[#E11D74]" strokeWidth={2} /> SPECIALTIES
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl font-extrabold leading-tight">
+              <span className="text-[#2B0F1E]">Our Areas of </span>
+              <span className="relative inline-block italic text-[#E11D74]">
+                Expertise
+                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 10" fill="none">
+                  <path d="M2 7 Q50 2 100 6 Q150 10 198 4" stroke="#E11D74" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.5" />
+                </svg>
+              </span>
+            </h2>
+            <div className="flex items-center justify-center gap-3 mt-6 mb-2">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-pink-300" />
+              <Heart size={14} fill="#E11D74" strokeWidth={0} />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-pink-300" />
+            </div>
+            <p className="mt-2 text-gray-500 text-[15px] max-w-xl mx-auto leading-relaxed">
+              From routine care to complex procedures, we cover every aspect of women's health.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -348,10 +398,16 @@ export default function SpecialtiesSection() {
                 </motion.div>
               </div>
 
+              {/* Colored top accent bar */}
+              <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#E11D74] to-pink-300 transition-all duration-500 rounded-b-sm" />
+
               {/* Text */}
               <div className="p-6">
                 <h3 className="font-serif text-[18px] font-bold text-[#2B0F1E] mb-2">{title}</h3>
-                <p className="text-[14px] text-gray-500 leading-relaxed">{desc}</p>
+                <p className="text-[14px] text-gray-500 leading-relaxed mb-4">{desc}</p>
+                <span className="inline-flex items-center gap-1 text-[13px] font-semibold text-[#E11D74] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Learn More <ArrowRight size={13} />
+                </span>
               </div>
             </motion.div>
           ))}

@@ -25,7 +25,7 @@ export default function ContactSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-4">
             <Heart size={12} fill="#E11D74" strokeWidth={0} /> CONTACT US
           </span>
-          <h2 className="font-serif text-4xl font-extrabold text-[#2B0F1E] leading-tight mb-4">
+          <h2 className="font-serif text-3xl lg:text-4xl font-extrabold text-[#2B0F1E] leading-tight mb-4">
             We're Here <span className="italic text-[#E11D74]">For You</span>
           </h2>
           <p className="text-gray-500 text-[15px] leading-relaxed mb-8">
@@ -65,7 +65,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           onSubmit={(e) => e.preventDefault()}
-          className="bg-white rounded-3xl p-8 shadow-sm flex flex-col gap-5"
+          className="bg-white rounded-3xl p-5 sm:p-8 shadow-sm flex flex-col gap-5"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="flex flex-col gap-1.5">

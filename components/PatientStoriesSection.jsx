@@ -39,7 +39,7 @@ export default function PatientStoriesSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-4">
             <Heart size={12} fill="#E11D74" strokeWidth={0} /> PATIENT STORIES
           </span>
-          <h2 className="font-serif text-4xl font-extrabold text-[#2B0F1E] leading-tight">
+          <h2 className="font-serif text-3xl lg:text-4xl font-extrabold text-[#2B0F1E] leading-tight">
             Voices of <span className="italic text-[#E11D74]">Our Mothers</span>
           </h2>
           <p className="mt-3 text-gray-500 text-[15px] max-w-xl mx-auto">

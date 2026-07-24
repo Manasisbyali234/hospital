@@ -76,7 +76,7 @@ function useCountUp(end, { duration = 2, decimals = 0, trigger }) {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#FDF3F7] pb-6 pt-[90px] md:pb-8">
+    <section className="relative overflow-hidden bg-[#FDF3F7] pb-6 pt-[72px] md:pt-[80px] md:pb-8">
       {/* decorative heart marks */}
       <span className="pointer-events-none absolute left-[37%] top-28 hidden select-none text-3xl text-pink-300/80 lg:block">
         ❤
@@ -91,15 +91,15 @@ export default function Hero() {
         ❤
       </span>
 
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-4 lg:px-10">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-2 px-4 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-4 lg:px-10">
         {/* Left column */}
-        <div className="relative flex flex-col justify-center pb-8 pt-0 lg:pb-14 lg:pt-0">
+        <div className="relative flex flex-col justify-center pb-4 pt-0 lg:pb-14 lg:pt-0">
           <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-pink-100 px-4 py-[7px] text-[11px] font-bold tracking-[0.06em] text-[#E11D74]">
             <Heart size={13} fill="#E11D74" strokeWidth={0} />
             GYNECOLOGY &amp; MATERNITY CARE
           </div>
 
-          <h1 className="font-serif text-[3.2rem] font-extrabold leading-[1.06] tracking-tight text-[#2A1020] sm:text-[3.6rem]">
+          <h1 className="font-serif text-[1.8rem] font-extrabold leading-[1.1] tracking-tight text-[#2A1020] sm:text-[2.4rem] lg:text-[3.2rem] xl:text-[3.6rem]">
             Where Every
             <br />
             Woman&apos;s Journey
@@ -107,13 +107,13 @@ export default function Hero() {
             <span className="italic text-[#EC1E79]">Begins with Care</span>
           </h1>
 
-          <p className="mt-5 max-w-[460px] text-[16px] leading-relaxed text-gray-500">
+          <p className="mt-3 max-w-[460px] text-[14px] leading-relaxed text-gray-500 sm:text-[16px]">
             Expert gynecologists, compassionate care, and advanced facilities
             – from your first check-up to the moment you hold your baby, we
             are with you at every step.
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3.5">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <Link
               href="/book-appointment"
               className="inline-flex items-center gap-2 rounded-full bg-[#E11D74] px-6 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-pink-200 transition-transform hover:scale-[1.03]"
@@ -130,7 +130,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-7">
+          <div className="mt-4 flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-3">
               <div className="flex -space-x-3">
                 {AVATARS.map((src, i) => (
@@ -169,7 +169,7 @@ export default function Hero() {
           </div>
 
           {/* Premium animated ECG heartbeat */}
-          <div className="mt-6">
+          <div className="mt-4 max-w-[520px]">
             <ECGHeartbeat />
           </div>
         </div>
@@ -209,9 +209,13 @@ function StatItem({ icon: Icon, end, suffix, decimals = 0, label, desc }) {
 
 function StatsBar() {
   return (
-    <div className="mx-auto -mt-4 max-w-[1400px] px-6 lg:px-10">
-      <div className="grid grid-cols-2 gap-8 rounded-3xl bg-white p-8 shadow-[0_10px_40px_rgba(225,29,116,0.08)] sm:grid-cols-3 lg:grid-cols-5">
-        {BOTTOM_STATS.map((stat) => <StatItem key={stat.label} {...stat} />)}
+    <div className="mx-auto mt-2 max-w-[1400px] px-4 sm:px-6 lg:px-10">
+      <div className="grid grid-cols-2 gap-4 rounded-3xl bg-white p-5 shadow-[0_10px_40px_rgba(225,29,116,0.08)] sm:grid-cols-3 lg:grid-cols-5 lg:p-6">
+        {BOTTOM_STATS.map((stat, i) => (
+          <div key={stat.label} className={i === 4 ? "col-span-2 sm:col-span-1" : ""}>
+            <StatItem {...stat} />
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -248,7 +252,7 @@ function Butterfly({ size, startX, startY, dur, delay, colors }) {
 
   return (
     <motion.div
-      className="pointer-events-none absolute hidden lg:block"
+      className="pointer-events-none absolute"
       style={{ left: startX, top: startY, zIndex: 25 }}
       animate={{ left: flyX, top: flyY }}
       transition={{ duration: dur, repeat: Infinity, ease: "easeInOut", delay, times: [0, 0.18, 0.35, 0.5, 0.68, 0.85, 1] }}
@@ -463,7 +467,7 @@ const CARDS = [
 function GlassCard({ icon: Icon, value, label, gradient, pos, delay, wide }) {
   return (
     <motion.div
-      className={`absolute z-20 ${pos} ${wide ? "w-[170px]" : "w-[118px]"}`}
+      className={`absolute z-20 hidden lg:block ${pos} ${wide ? "w-[170px]" : "w-[118px]"}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: delay + 0.6, duration: 0.7, ease: "easeOut" }}
@@ -498,7 +502,7 @@ function GlassCard({ icon: Icon, value, label, gradient, pos, delay, wide }) {
 ───────────────────────────────────────────── */
 function HeroVisual() {
   return (
-    <div className="relative mx-auto flex w-full max-w-[600px] items-center justify-center py-8 lg:py-10">
+    <div className="relative mx-auto flex w-full max-w-[320px] items-center justify-center py-2 sm:max-w-[420px] sm:py-4 lg:max-w-[600px] lg:py-10">
 
       {/* ── ROTATING GRADIENT RINGS ── */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
@@ -507,8 +511,8 @@ function HeroVisual() {
             key={i}
             className="absolute rounded-full"
             style={{
-              width: 340 + i * 90,
-              height: 340 + i * 90,
+              width: `min(${340 + i * 90}px, ${85 + i * 5}vw)`,
+              height: `min(${340 + i * 90}px, ${85 + i * 5}vw)`,
               background: `conic-gradient(from ${i * 120}deg, #fce7f3, #f9a8d4, #e11d74, #fce7f3)`,
               opacity: 0.13 - i * 0.03,
               filter: "blur(2px)",
@@ -517,13 +521,11 @@ function HeroVisual() {
             transition={{ duration: 18 + i * 6, repeat: Infinity, ease: "linear" }}
           />
         ))}
-
-        {/* Static soft glow behind image */}
         <div
           className="absolute rounded-full"
           style={{
-            width: 380,
-            height: 460,
+            width: "min(380px, 90vw)",
+            height: "min(460px, 90vw)",
             background: "radial-gradient(ellipse, rgba(225,29,116,0.18) 0%, transparent 70%)",
             filter: "blur(30px)",
           }}
@@ -536,7 +538,7 @@ function HeroVisual() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10"
+        className="relative z-10 w-[min(260px,68vw)] sm:w-[min(340px,76vw)] lg:w-[min(420px,80vw)]"
       >
         {/* Animated border ring */}
         <motion.div
@@ -552,11 +554,10 @@ function HeroVisual() {
 
         {/* Image container */}
         <div
-          className="relative overflow-hidden border-[10px] border-white"
+          className="relative overflow-hidden border-[10px] border-white w-full"
           style={{
             borderRadius: "50% / 40%",
-            width: 420,
-            height: 500,
+            aspectRatio: "420 / 500",
             boxShadow: "0 30px 80px rgba(225,29,116,0.25), 0 8px 24px rgba(0,0,0,0.10)",
           }}
         >
@@ -567,8 +568,6 @@ function HeroVisual() {
             className="object-cover object-top"
             priority
           />
-
-          {/* Shimmer sweep */}
           <motion.div
             className="absolute inset-0"
             style={{

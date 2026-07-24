@@ -132,7 +132,7 @@ const DOCTORS = [
 
 export default function DoctorsSection() {
   return (
-    <section id="doctors" className="relative overflow-hidden bg-[#FDF3F7] py-12 lg:py-16 px-6 lg:px-10">
+    <section id="doctors" className="relative overflow-hidden bg-[#FDF3F7] pt-12 lg:pt-16 pb-0 px-6 lg:px-10">
       <DoctorsBg />
       <div className="relative z-10 mx-auto max-w-[1280px]">
         {/* Header */}
@@ -140,7 +140,7 @@ export default function DoctorsSection() {
           <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-4">
             <Heart size={12} fill="#E11D74" strokeWidth={0} /> OUR DOCTORS
           </span>
-          <h2 className="font-serif text-4xl font-extrabold text-[#2B0F1E] leading-tight">
+          <h2 className="font-serif text-3xl lg:text-4xl font-extrabold text-[#2B0F1E] leading-tight">
             Meet Our <span className="italic text-[#E11D74]">Expert Team</span>
           </h2>
           <p className="mt-3 text-gray-500 text-[15px] max-w-xl mx-auto">

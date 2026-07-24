@@ -65,7 +65,7 @@ export default function HospitalExperienceSection() {
   }, []);
 
   return (
-    <section id="hospital-experience" className="relative overflow-hidden bg-gradient-to-br from-[#fff0f5] via-[#fce4ec] to-[#f8bbd0] py-12 lg:py-16 px-6 lg:px-10">
+    <section id="hospital-experience" className="relative overflow-hidden bg-gradient-to-br from-[#fff0f5] via-[#fce4ec] to-[#f8bbd0] pt-6 pb-0 lg:pt-8 lg:pb-0 px-6 lg:px-10">
 
       {/* Decorative SVG — hearts + dotted lines */}
       <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">

@@ -23,10 +23,10 @@ function cycleD(ox) {
   return (
     `M${ox},40 L${ox + 80},40 ` +
     // cluster A
-    `L${ox + 90},44 L${ox + 100},6 L${ox + 110},46 L${ox + 140},40 ` +
+    `L${ox + 90},52 L${ox + 100},2 L${ox + 110},62 L${ox + 140},40 ` +
     `L${ox + 160},40 ` +
     // cluster B
-    `L${ox + 170},43 L${ox + 180},12 L${ox + 190},45 L${ox + 220},40 ` +
+    `L${ox + 170},50 L${ox + 180},4 L${ox + 190},60 L${ox + 220},40 ` +
     // flat to end of cycle
     `L${ox + CYCLE},40`
   );
@@ -36,7 +36,7 @@ function cycleD(ox) {
 const FULL_PATH = cycleD(0) + " " + cycleD(CYCLE).replace(/^M\d+,\d+\s/, "");
 
 const VB_W = 1200;
-const VB_H = 80;
+const VB_H = 120;
 const HEART_X = 600;
 const HEART_Y = 40;
 const DURATION = 2800; // ms for one full sweep
@@ -87,20 +87,20 @@ export default function ECGHeartbeat() {
   const WINDOW = 180;
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", minHeight: 36 }}>
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
         preserveAspectRatio="xMidYMid meet"
-        style={{ width: "100%", height: "auto", display: "block" }}
+        style={{ width: "100%", height: "clamp(52px, 8vw, 110px)", display: "block" }}
         fill="none"
       >
         <defs>
           {/* Gradient for the bright active segment — deep crimson/magenta */}
           <linearGradient id="ecg-active" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%"   stopColor="#be185d" stopOpacity="0" />
-            <stop offset="30%"  stopColor="#9d174d" stopOpacity="1" />
-            <stop offset="70%"  stopColor="#831843" stopOpacity="1" />
-            <stop offset="100%" stopColor="#be185d" stopOpacity="0.7" />
+            <stop offset="0%"   stopColor="#4c0519" stopOpacity="0" />
+            <stop offset="30%"  stopColor="#4c0519" stopOpacity="1" />
+            <stop offset="70%"  stopColor="#3b0114" stopOpacity="1" />
+            <stop offset="100%" stopColor="#4c0519" stopOpacity="0.8" />
           </linearGradient>
 
           {/* Orb glow — deep rose */}
@@ -164,21 +164,21 @@ export default function ECGHeartbeat() {
         {/* ── Faint full path (always visible as ghost) ── */}
         <path
           d={FULL_PATH}
-          stroke="#9d174d"
+          stroke="#4c0519"
           strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
-          opacity="0.25"
+          opacity="0.55"
         />
 
         {/* ── Trail: already-scanned portion, slightly brighter ── */}
         <path
           d={FULL_PATH}
-          stroke="#be185d"
-          strokeWidth="2"
+          stroke="#7f1d3f"
+          strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          opacity="0.5"
+          opacity="0.85"
           clipPath="url(#trail-clip)"
         />
 
@@ -186,7 +186,7 @@ export default function ECGHeartbeat() {
         <path
           d={FULL_PATH}
           stroke="url(#ecg-active)"
-          strokeWidth="3"
+          strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
           filter="url(#line-glow)"
@@ -212,33 +212,33 @@ export default function ECGHeartbeat() {
           {/* halo */}
           <ellipse
             cx={HEART_X} cy={HEART_Y + 2}
-            rx={heartGlow ? 36 : 26} ry={heartGlow ? 28 : 20}
+            rx={heartGlow ? 62 : 50} ry={heartGlow ? 52 : 42}
             fill="url(#heart-halo)"
             filter="url(#halo-blur)"
             style={{ transition: "rx 0.22s, ry 0.22s" }}
           />
           {/* body */}
           <path
-            d={`M${HEART_X},${HEART_Y+17}
-                C${HEART_X-14},${HEART_Y+7} ${HEART_X-27},${HEART_Y} ${HEART_X-27},${HEART_Y-10}
-                C${HEART_X-27},${HEART_Y-20} ${HEART_X-18},${HEART_Y-25} ${HEART_X-10},${HEART_Y-25}
-                C${HEART_X-5},${HEART_Y-25} ${HEART_X-1},${HEART_Y-22} ${HEART_X},${HEART_Y-18}
-                C${HEART_X+1},${HEART_Y-22} ${HEART_X+5},${HEART_Y-25} ${HEART_X+10},${HEART_Y-25}
-                C${HEART_X+18},${HEART_Y-25} ${HEART_X+27},${HEART_Y-20} ${HEART_X+27},${HEART_Y-10}
-                C${HEART_X+27},${HEART_Y} ${HEART_X+14},${HEART_Y+7} ${HEART_X},${HEART_Y+17}Z`}
+            d={`M${HEART_X},${HEART_Y+34}
+                C${HEART_X-22},${HEART_Y+14} ${HEART_X-46},${HEART_Y} ${HEART_X-46},${HEART_Y-18}
+                C${HEART_X-46},${HEART_Y-36} ${HEART_X-32},${HEART_Y-46} ${HEART_X-18},${HEART_Y-46}
+                C${HEART_X-9},${HEART_Y-46} ${HEART_X-2},${HEART_Y-41} ${HEART_X},${HEART_Y-34}
+                C${HEART_X+2},${HEART_Y-41} ${HEART_X+9},${HEART_Y-46} ${HEART_X+18},${HEART_Y-46}
+                C${HEART_X+32},${HEART_Y-46} ${HEART_X+46},${HEART_Y-36} ${HEART_X+46},${HEART_Y-18}
+                C${HEART_X+46},${HEART_Y} ${HEART_X+22},${HEART_Y+14} ${HEART_X},${HEART_Y+34}Z`}
             fill="url(#heart-g)"
           />
           {/* glass sheen — top-left lobe */}
           <path
-            d={`M${HEART_X},${HEART_Y-18}
-                C${HEART_X-1},${HEART_Y-22} ${HEART_X-5},${HEART_Y-25} ${HEART_X-10},${HEART_Y-25}
-                C${HEART_X-18},${HEART_Y-25} ${HEART_X-27},${HEART_Y-20} ${HEART_X-27},${HEART_Y-10}
-                C${HEART_X-27},${HEART_Y-4} ${HEART_X-21},${HEART_Y+1} ${HEART_X-13},${HEART_Y+7}
-                C${HEART_X-7},${HEART_Y-2} ${HEART_X-2},${HEART_Y-10} ${HEART_X},${HEART_Y-18}Z`}
+            d={`M${HEART_X},${HEART_Y-34}
+                C${HEART_X-2},${HEART_Y-41} ${HEART_X-9},${HEART_Y-46} ${HEART_X-18},${HEART_Y-46}
+                C${HEART_X-32},${HEART_Y-46} ${HEART_X-46},${HEART_Y-36} ${HEART_X-46},${HEART_Y-18}
+                C${HEART_X-46},${HEART_Y-6} ${HEART_X-36},${HEART_Y+2} ${HEART_X-22},${HEART_Y+14}
+                C${HEART_X-12},${HEART_Y-4} ${HEART_X-4},${HEART_Y-18} ${HEART_X},${HEART_Y-34}Z`}
             fill="url(#heart-sheen)"
           />
           {/* specular dot */}
-          <ellipse cx={HEART_X-11} cy={HEART_Y-17} rx="5" ry="3.5" fill="white" opacity="0.55" />
+          <ellipse cx={HEART_X-18} cy={HEART_Y-32} rx="9" ry="6" fill="white" opacity="0.55" />
         </g>
       </svg>
     </div>

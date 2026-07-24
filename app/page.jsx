@@ -4,7 +4,6 @@ import AboutSection from "@/components/AboutSection";
 import CareJourneySection from "@/components/CareJourneySection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import HospitalExperienceSection from "@/components/HospitalExperienceSection";
-import PatientStoriesSection from "@/components/PatientStoriesSection";
 import HealthKnowledgeSection from "@/components/HealthKnowledgeSection";
 import DoctorsSection from "@/components/DoctorsSection";
 import SpecialtiesSection from "@/components/SpecialtiesSection";
@@ -23,7 +22,6 @@ export default function HomePage() {
       <HospitalExperienceSection />
       <DoctorsSection />
       <SpecialtiesSection />
-      <PatientStoriesSection />
       <HealthKnowledgeSection />
       <FacilitiesSection />
       <ContactSection />

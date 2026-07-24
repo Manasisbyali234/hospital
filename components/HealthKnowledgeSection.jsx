@@ -30,27 +30,11 @@ const BLOGS = [
     readTime: "6 min read",
     img: "https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?w=600&q=80",
   },
-  {
-    category: "Women's Health",
-    title: "Understanding PCOS: Symptoms, Causes & Treatment",
-    excerpt: "PCOS affects 1 in 5 women. Learn how to identify the signs early and manage it effectively with the right care.",
-    date: "June 28, 2025",
-    readTime: "7 min read",
-    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
-  },
-  {
-    category: "Newborn Care",
-    title: "Your Newborn's First Week: A Complete Guide",
-    excerpt: "Feeding schedules, sleep patterns, umbilical cord care and warning signs — everything you need in the first 7 days.",
-    date: "June 20, 2025",
-    readTime: "5 min read",
-    img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80",
-  },
 ];
 
 export default function HealthKnowledgeSection() {
   return (
-    <section id="health-knowledge" className="bg-white py-12 lg:py-16 px-6 lg:px-10">
+    <section id="health-knowledge" className="bg-white pt-4 lg:pt-6 pb-4 lg:pb-6 px-6 lg:px-10">
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <div>

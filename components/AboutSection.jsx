@@ -105,7 +105,7 @@ export default function AboutSection() {
             className="absolute inset-4 rounded-3xl bg-gradient-to-br from-pink-300 to-rose-300 blur-2xl -z-10"
           />
 
-          <div className="relative rounded-3xl overflow-hidden h-[480px] shadow-2xl ring-2 ring-pink-200">
+          <div className="relative rounded-3xl overflow-hidden h-[320px] sm:h-[420px] lg:h-[480px] shadow-2xl ring-2 ring-pink-200">
             <motion.div style={{ y: bgY }} className="absolute inset-0">
               <Image src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=900&q=85" alt="Mother and baby" fill className="object-cover scale-110" />
             </motion.div>
@@ -156,7 +156,7 @@ export default function AboutSection() {
           {/* Heading */}
           <motion.h2
             variants={itemVariants}
-            className="font-serif text-4xl lg:text-5xl font-extrabold text-[#2B0F1E] leading-tight mb-5"
+            className="font-serif text-3xl lg:text-5xl font-extrabold text-[#2B0F1E] leading-tight mb-5"
           >
             Dedicated to Every <br />
             <span className="relative italic text-[#E11D74]">

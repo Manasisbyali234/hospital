@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Heart } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
 
 const STEPS = [
   { label: "Women's Wellness", desc: "Holistic health screenings & preventive care", img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" },
@@ -191,16 +192,78 @@ function CareJourneyBg() {
   );
 }
 
-export default function CareJourneySection() {
+function WaveStep({ label, desc, img, i, scrollYProgress }) {
+  const baseOffset = i % 2 === 0 ? 0 : 60;
+  // each step gets a slightly different phase in the wave
+  const phase = i * 0.12;
+  const raw = useTransform(scrollYProgress, [phase, phase + 0.5, phase + 1], [baseOffset + 20, baseOffset - 20, baseOffset + 20]);
+  const y = useSpring(raw, { stiffness: 80, damping: 20 });
+
   return (
-    <section id="care-journey" className="relative overflow-hidden py-12 lg:py-16 px-6 lg:px-10">
+    <motion.div
+      key={label}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
+      className="relative z-10 flex flex-col items-center text-center flex-1 px-2"
+      style={{ y }}
+    >
+      <motion.div
+        initial={{ scale: 0.6, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.12 + 0.15 }}
+        className="relative h-[88px] w-[88px] mb-3"
+      >
+        <div className="relative h-full w-full rounded-full overflow-hidden border-4 border-white shadow-lg shadow-pink-100">
+          <Image src={img} alt={label} fill className="object-cover" />
+          <div className="absolute inset-0 bg-[#E11D74]/20" />
+        </div>
+        <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#E11D74] text-white text-[11px] font-bold shadow z-10">
+          {i + 1}
+        </span>
+      </motion.div>
+      {i < 5 && (
+        <motion.span
+          initial={{ opacity: 0, x: -6 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: i * 0.12 + 0.35 }}
+          className="hidden lg:block absolute top-[68px] right-[-8px] text-[#E11D74] text-xl font-bold z-20"
+        >›</motion.span>
+      )}
+      <motion.h3
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: i * 0.12 + 0.28 }}
+        className="font-serif text-[14px] font-bold text-[#2B0F1E] mb-1"
+      >{label}</motion.h3>
+      <motion.p
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: i * 0.12 + 0.36 }}
+        className="text-[12px] text-gray-500 leading-relaxed"
+      >{desc}</motion.p>
+    </motion.div>
+  );
+}
+
+export default function CareJourneySection() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+  return (
+    <section id="care-journey" className="relative overflow-hidden pt-4 pb-4 lg:pt-6 lg:pb-6 px-6 lg:px-10">
       <CareJourneyBg />
       <div className="relative z-10 mx-auto max-w-[1280px]">
         <div className="text-center mb-14">
           <span className="inline-flex items-center gap-2 rounded-full bg-pink-100 px-4 py-1.5 text-[11px] font-bold tracking-widest text-[#E11D74] mb-4">
             <Heart size={12} fill="#E11D74" strokeWidth={0} /> OUR CARE JOURNEY
           </span>
-          <h2 className="font-serif text-4xl font-extrabold text-[#2B0F1E] leading-tight">
+          <h2 className="font-serif text-3xl lg:text-4xl font-extrabold text-[#2B0F1E] leading-tight">
             With You at <span className="italic text-[#E11D74]">Every Step</span>
           </h2>
           <p className="mt-3 text-gray-500 text-[15px] max-w-xl mx-auto">
@@ -209,58 +272,9 @@ export default function CareJourneySection() {
         </div>
 
         {/* Timeline */}
-        <div className="relative flex flex-col lg:flex-row items-start lg:items-start gap-6 lg:gap-0">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute top-[72px] left-0 right-0 h-[2px] bg-pink-100 z-0" />
-
+        <div ref={ref} className="relative flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-0 pb-16">
           {STEPS.map(({ label, desc, img }, i) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
-              className="relative z-10 flex flex-col items-center text-center flex-1 px-2"
-            >
-              {/* Image circle */}
-              <motion.div
-                initial={{ scale: 0.6, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 260, damping: 18, delay: i * 0.12 + 0.15 }}
-                className="relative h-[88px] w-[88px] rounded-full overflow-hidden border-4 border-white shadow-lg shadow-pink-100 mb-3"
-              >
-                <Image src={img} alt={label} fill className="object-cover" />
-                <div className="absolute inset-0 bg-[#E11D74]/20" />
-                <span className="absolute bottom-1 right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#E11D74] text-white text-[11px] font-bold shadow">
-                  {i + 1}
-                </span>
-              </motion.div>
-              {/* Arrow */}
-              {i < STEPS.length - 1 && (
-                <motion.span
-                  initial={{ opacity: 0, x: -6 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.12 + 0.35 }}
-                  className="hidden lg:block absolute top-[68px] right-[-8px] text-[#E11D74] text-xl font-bold z-20"
-                >›</motion.span>
-              )}
-              <motion.h3
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.12 + 0.28 }}
-                className="font-serif text-[14px] font-bold text-[#2B0F1E] mb-1"
-              >{label}</motion.h3>
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.12 + 0.36 }}
-                className="text-[12px] text-gray-500 leading-relaxed"
-              >{desc}</motion.p>
-            </motion.div>
+            <WaveStep key={label} label={label} desc={desc} img={img} i={i} scrollYProgress={scrollYProgress} />
           ))}
         </div>
       </div>

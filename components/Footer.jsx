@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Phone, Mail, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
 
 const QUICK_LINKS = [
@@ -27,9 +28,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#E11D74] text-xl font-bold text-white">
-                R
-              </span>
+              <Image src="/images/hospital-symbol.jpg" alt="Rosewood Hospital Logo" width={44} height={44} className="rounded-full" />
               <span className="leading-tight">
                 <span className="block font-serif text-lg font-semibold text-white">Rosewood</span>
                 <span className="block text-[11px] font-semibold tracking-[0.18em] text-[#E11D74]">WOMEN'S CARE</span>
