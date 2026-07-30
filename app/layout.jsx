@@ -16,6 +16,9 @@ export const metadata = {
   title: "GurushreeWomen's Care",
   description:
     "Expert gynecologists, compassionate care, and advanced facilities for every stage of a woman's journey.",
+  icons: {
+    icon: "/images/hospital-symbol.jpg",
+  },
 };
 
 export default function RootLayout({ children }) {

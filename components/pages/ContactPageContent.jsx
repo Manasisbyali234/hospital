@@ -98,7 +98,7 @@ export default function ContactPageContent() {
               <h3 className="font-serif text-[20px] font-bold text-[#2B0F1E]">Contact Information</h3>
               {[
                 { icon: Phone, label: "Phone", value: "+91 98765 43210" },
-                { icon: Mail, label: "Email", value: "care@rosewoodhospital.com" },
+                { icon: Mail, label: "Email", value: "care@gurushreehospital.com" },
                 { icon: MapPin, label: "Address", value: "12, Rose Avenue, Bandra West, Mumbai – 400050" },
                 { icon: Clock, label: "Hours", value: "Mon – Sat: 8 AM – 8 PM  |  Emergency: 24×7" },
               ].map(({ icon: Icon, label, value }) => (
