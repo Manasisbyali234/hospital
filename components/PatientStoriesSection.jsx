@@ -8,7 +8,7 @@ const STORIES = [
   {
     name: "Priya Sharma",
     tag: "First-time Mother",
-    quote: "The team at Rosewood made my entire pregnancy journey feel safe and special. The labour suite was so calm — I couldn't have asked for a better birth experience.",
+    quote: "The team at Gurushreemade my entire pregnancy journey feel safe and special. The labour suite was so calm — I couldn't have asked for a better birth experience.",
     stars: 5,
     thumb: "https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?w=600&q=80",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",

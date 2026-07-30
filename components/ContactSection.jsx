@@ -50,7 +50,7 @@ export default function ContactSection() {
           <div className="relative mt-4 rounded-2xl overflow-hidden h-44 shadow">
             <Image
               src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80"
-              alt="Rosewood Hospital"
+              alt="GurushreeHospital"
               fill
               className="object-cover"
             />

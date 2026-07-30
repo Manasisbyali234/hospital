@@ -28,9 +28,9 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-3 mb-5">
-              <Image src="/images/hospital-symbol.jpg" alt="Rosewood Hospital Logo" width={44} height={44} className="rounded-full" />
+              <Image src="/images/hospital-symbol.jpg" alt="GurushreeHospital Logo" width={44} height={44} className="rounded-full" />
               <span className="leading-tight">
-                <span className="block font-serif text-lg font-semibold text-white">Rosewood</span>
+                <span className="block font-serif text-lg font-semibold text-white">Gurushree</span>
                 <span className="block text-[11px] font-semibold tracking-[0.18em] text-[#E11D74]">WOMEN'S CARE</span>
               </span>
             </Link>
@@ -110,7 +110,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[13px] text-gray-500">
-            © {new Date().getFullYear()} Rosewood Women's Care. All rights reserved.
+            © {new Date().getFullYear()} GurushreeWomen's Care. All rights reserved.
           </p>
           <p className="text-[13px] text-gray-500 flex items-center gap-1.5">
             Made with <Heart size={12} fill="#E11D74" strokeWidth={0} className="text-[#E11D74]" /> for every mother

@@ -187,7 +187,7 @@ export default function WhyChooseUsSection() {
               <span className="italic text-[#E11D74]">Choose Us</span>
             </h2>
             <p className="mt-3 text-gray-500 text-[15px]">
-              Six reasons thousands of families trust Rosewood Women&apos;s Care.
+              Six reasons thousands of families trust GurushreeWomen&apos;s Care.
             </p>
           </motion.div>
 

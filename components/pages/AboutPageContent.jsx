@@ -5,7 +5,7 @@ import { Heart, Award, Users, ShieldPlus, Sparkles, CheckCircle2, Quote } from "
 import Image from "next/image";
 
 const TIMELINE = [
-  { year: "1999", title: "Founded", desc: "Rosewood Women's Care was established with a vision to provide world-class gynecological care in Mumbai." },
+  { year: "1999", title: "Founded", desc: "GurushreeWomen's Care was established with a vision to provide world-class gynecological care in Mumbai." },
   { year: "2005", title: "NABH Accreditation", desc: "Received National Accreditation Board for Hospitals certification, setting a new standard of quality." },
   { year: "2010", title: "IVF Centre Launched", desc: "Opened a dedicated fertility and IVF centre, bringing hope to thousands of families." },
   { year: "2015", title: "10,000 Deliveries", desc: "Celebrated a milestone of 10,000 safe deliveries with zero maternal mortality." },
@@ -61,7 +61,7 @@ export default function AboutPageContent() {
               25 Years of Caring for <span className="italic text-[#E11D74]">Women&apos;s Health</span>
             </h2>
             <p className="text-gray-500 text-[15px] leading-relaxed mb-4">
-              Founded in 1999 by Dr. Meera Kapoor, Rosewood Women&apos;s Care began as a small clinic in Bandra with a single mission — to give every woman access to compassionate, expert gynecological care.
+              Founded in 1999 by Dr. Meera Kapoor, GurushreeWomen&apos;s Care began as a small clinic in Bandra with a single mission — to give every woman access to compassionate, expert gynecological care.
             </p>
             <p className="text-gray-500 text-[15px] leading-relaxed mb-6">
               Over two decades, we have grown into Mumbai&apos;s most trusted women&apos;s hospital, with a 150-bed facility, 12 operation theatres, and a team of over 150 specialists. Yet our founding values remain unchanged: every patient is family.

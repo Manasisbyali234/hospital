@@ -184,7 +184,7 @@ export default function AboutSection() {
           </motion.h2>
 
           <motion.p variants={itemVariants} className="text-gray-500 text-[15px] leading-relaxed mb-4">
-            Rosewood Women&apos;s Care is a premier gynecology and maternity hospital
+            GurushreeWomen&apos;s Care is a premier gynecology and maternity hospital
             committed to providing compassionate, expert care at every stage of a
             woman&apos;s life — from adolescence through menopause and beyond.
           </motion.p>

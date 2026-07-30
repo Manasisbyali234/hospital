@@ -52,9 +52,9 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-[1536px] items-center justify-between px-6 py-5 lg:px-10">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/images/hospital-symbol.jpg" alt="Rosewood Hospital Logo" width={44} height={44} className="rounded-full" />
+          <Image src="/images/hospital-symbol.jpg" alt="GurushreeHospital Logo" width={44} height={44} className="rounded-full" />
           <span className="leading-tight">
-            <span className="block font-serif text-lg font-semibold text-[#2B0F1E]">Rosewood</span>
+            <span className="block font-serif text-lg font-semibold text-[#2B0F1E]">Gurushree</span>
             <span className="block text-[11px] font-semibold tracking-[0.18em] text-[#E11D74]">WOMEN&apos;S CARE</span>
           </span>
         </Link>
